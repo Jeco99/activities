@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Acitivity 2</h2>
+    <h2>JavaScript For Of Loop</h2>
+    <h2>Get the 4 characters only</h2>
+    <p id="demo1"></p>
+ 
+
+    <script>
+    
+    var name1 = ['qwerty', "qwsadfd", "jkdfakja", "ojfdkhsf"];
+
+    let text = "";
+    for (let x of name1) {
+     text += `${x.substring(0,4)} <br>`;
+    }
+    document.getElementById("demo1").innerHTML = text;
+    
+    </script>
+
+</body>
+</html>

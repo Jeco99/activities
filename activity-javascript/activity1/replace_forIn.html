@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2><i>replace --- </i> JavaScript For In Loop</h2>
+    <p>The for in statement loops through the properties of an object:</p>
+
+    <p id="demo"></p>
+
+    <script>
+    const person = { fname:"JohN", lname:"DoE" }; 
+
+    let txt = "";
+    for (let x in person) {
+            let names = person[x];
+            txt += ` ${names.replace(names[names.length - 1], names[names.length - 1].toLowerCase() )} `;
+            // txt += names;
+    }
+
+    document.getElementById("demo").innerHTML = txt;
+    </script>
+
+</body>
+</html>

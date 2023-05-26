@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<body>
+   
+     <p>
+          For Today,
+          1. Function Being Invoked Manually In the Script
+          2. Function Being Invoked by onClick
+          3. Function Self-Invoked
+          4. Function Being Called by setInverval
+
+          all the examples are posted above
+
+          please do note that not all functions have parameters, but when they do, its intention is to be used for several times without changing anything inside the function, hence a reusable piece of code
+
+          for the Async, continue the activities we started today
+     </p>
+    <section>
+        <h1>Area of Plane Shapes</h1>
+
+        <p id="triangle"></p>
+        <p id="square"></p>
+        <p id="rectangle"></p>
+        <p id="parallelogram"></p>
+        <p id="trapezoid"></p>
+        <p id="circle"></p>
+    </section>
+
+    <section>
+        <button onclick="cancelOrder()">Cancel Order</button>
+        <p id="demo"></p>
+    </section>
+
+    <section>
+        <p>Functions can be invoked automatically without being called: </p>
+        <p id="self_Invoked"></p>
+    </section>
+
+    <section>
+          <h3>Timer Countdown</h3>
+          <p id="timer"></p>
+    </section>
+
+    <script>
+
+    // function invoked
+
+    const PI = 3.14;
+    const half = 0.5;
+    let result1 = areaCirc(4, 3);
+    document.getElementById("triangle").innerHTML = result1;
+
+    let result2 = areaSquare(15);
+    document.getElementById("square").innerHTML = result2;
+
+    let result3 = areaRect(20, 21);
+    document.getElementById("rectangle").innerHTML = result3;
+
+    let result4 = areaPara(20, 21);
+    document.getElementById("parallelogram").innerHTML = result4;
+
+    let result5 = areaTra(20, 21, 5);
+    document.getElementById("trapezoid").innerHTML = result5;
+
+    let result6 = areaCirc(20, 21);
+    document.getElementById("circle").innerHTML = result6;
+
+    function areaTri(b,h) {
+         return half * b * h;
+    }
+
+    function areaSquare(a) {
+         return a ** 2;
+    }
+
+    function areaRect(w, h) {
+         return w * h;
+    }
+
+    function areaPara(b, h) {
+         return b * h;
+    }
+
+    function areaTra(a, b, h) {
+         return half * (a+b) * h;
+    }
+
+    function areaCirc(r) {
+         return PI * (r ** 2);
+    }
+
+
+
+    //function triggered by onClick
+    function cancelOrder(){
+        confirm("Cancel Order? ");
+        document.getElementById('demo').innerHTML = "Order Cancelled.";
+    }
+
+    //function  self-invoked
+    (function (){
+     document.getElementById('self_Invoked').innerHTML = "I called myself";
+    })();
+
+
+    //setInterval
+    setInterval(timerCountdown, 1000);
+
+    i = 10;
+    function timerCountdown(){
+          document.getElementById("timer").innerHTML = "";
+          document.getElementById("timer").innerHTML = i--;
+    }
+
+    </script>
+
+</body>
+</html>

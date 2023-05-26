@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <label for="num1-input">Number 1:</label>
+    <input type="number" id="num1-input"><br>
+
+    <label for="num2-input">Number 2:</label>
+    <input type="number" id="num2-input"><br>
+
+    <label for="operator-select">Operator:</label>
+    <select  id="operator-select">
+        <option value="+">Addition</option>
+        <option value="-">Subtraction</option>
+        <option value="*">Multiplication</option>
+        <option value="/">Division</option>
+    </select> <br>
+
+    <button id="calculate-button">Calculate</button>
+
+    <script>
+        const num1Input = document.getElementById("num1-input");
+        const num2Input = document.getElementById("num2-input");
+        const operatorSelect = document.getElementById("operator-select");
+        const calculateButton = document.getElementById("calculate-button");
+
+        calculateButton.addEventListener("click", () =>{
+            const num1 = Number(num1Input.value);
+            const num2 = Number(num2Input.value);
+            const operator = operatorSelect.value;
+
+            let result;
+            if(operator == '+'){
+                result = num1 + num2;
+            } else if(operator == '-'){
+                result = num1 - num2;
+            } else if(operator == '*'){
+                result = num1 * num2;
+            }else{
+                result = num1 / num2;
+            }
+
+            alert(`The result of ${num1} ${operator} ${num2} is ${result}. `);
+        });
+    </script>
+</body>
+</html>
