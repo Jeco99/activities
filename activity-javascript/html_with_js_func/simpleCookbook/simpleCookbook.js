@@ -1,9 +1,6 @@
 var ul = document.querySelector('ul');
 var ol = document.querySelector('ol');
 
-
-
-
 //ingredients
 var ingre = document.getElementById('ingredients');
 var ingreBtn = document.getElementById('addIngredientsBtn');
@@ -20,7 +17,14 @@ var saveBtn = document.getElementById('saveBtn');
 // recipe details display
 var recipeDetails = document.getElementById('recipeDetails');
 
+//recipe
+var recipeName = document.getElementById('recipeId');
 
+
+//store the data
+var ingredientsData = [];
+var instructionsData = [];
+var recipetitleData = [];
 
 
 // ingredients
@@ -28,6 +32,7 @@ function addIngredients(){
     let li = document.createElement('li');
     li.className = 'ingreList';
     li.innerHTML = ingre.value;
+    ingredientsData.push(ingre.value);
     ul.append(li);
     ingre.value = "";
 }
@@ -37,6 +42,7 @@ function addInstructions(){
     let li = document.createElement('li');
     li.className = "instrucList";
     li.innerHTML = instruction.value;
+    instructionsData.push(instruction.value);
     ol.append(li);
     instruction.value = "";
 }
@@ -74,37 +80,41 @@ function display(disp_arr, tagName){
 
 
 function saveDetails(){
-    let ingredients = document.createElement('h2');
-    let instruction = document.createElement('h2');
+    let ingredients = document.createElement('h3');
+    let instruction = document.createElement('h3');
+    let recipeNameId = document.createElement('h2');
     let recipeD = document.createElement('h1');
+    let recipeList = document.createElement('h1');
 
-    recipeD.innerHTML = 'Recipe Details';
-    recipeDetails.append(recipeD);
-    
+    recipeList.innerHTML = "Recipe List";
+    recipeDetails.append(recipeList);
+
+    // console.log(ingredientsData);
+    // console.log(instructionsData);
+
+    // recipeD.innerHTML = 'Recipe Details';
+    // recipeDetails.append(recipeD);
+
+    // recipeNameId.innerHTML = recipeName.value;
+    // recipeDetails.append(recipeNameId);    
    
-    let ingList = document.getElementsByClassName('ingreList');
-    let ingVal = extractVal(ingList);
+    // let ingList = document.getElementsByClassName('ingreList');
+    // let ingVal = extractVal(ingList);
 
-    ingredients.innerHTML = 'Ingredients';
-    recipeDetails.append(ingredients);
+    // ingredients.innerHTML = 'Ingredients';
+    // recipeDetails.append(ingredients);
  
-    display(ingVal, "ul");
+    // display(ingVal, "ul");
 
 
-    let insTrucList = document.getElementsByClassName('instrucList');
-    let instrucVal = extractVal(insTrucList);
+    // let insTrucList = document.getElementsByClassName('instrucList');
+    // let instrucVal = extractVal(insTrucList);
 
-    instruction.innerHTML = 'Instructions';
-    recipeDetails.append(instruction);
+    // instruction.innerHTML = 'Instructions';
+    // recipeDetails.append(instruction);
  
-    display(instrucVal, ol);
-   
-
-
-  
-
-
-    
+    // display(instrucVal, "ol");
+       
 }
 
 
