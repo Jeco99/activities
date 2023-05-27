@@ -41,6 +41,7 @@ function mask(){
         digitDisp.innerHTML = "";
     } 
 
+
 }
 
 function unmask(){
