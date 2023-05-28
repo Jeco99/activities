@@ -9,36 +9,45 @@
   <body class="container">
     <h1 class="text-center pt-5">Simple CookBook</h1>
       <div class="row">
-        <div class="col">
-          <div class="container mt-5">
-            <h1>Recipe Name: </h1>
-            <input type="text" class="form-control-sm" placeholder="Recipe Name" id="recipeId">
+          <div class="col">
+            <div class="container mt-5">
+              <h1>Recipe Name: </h1>
+              <input type="text" class="form-control-md" placeholder="Recipe Name" id="recipeId">
+              <div class="text-warning" id="warning"></div>
+           </div>
+          
+          <br>
+        
+          <section class="container mt-5">    
+            <h1>Ingredients:</h1>
+            <div id="ingredient-list"><ul id="unList"></ul></div>
+            <input class="form-control-md" type="text" id="ingredients" placeholder="Add ingredient">
+            <button class="btn btn-sm bg-secondary" id="addIngredientsBtn">Add</button>
+            <div class="text-warning" id="warningIng"></div>
+          </section>
+        
+          <section class="container mt-5">
+            <h1>Instructions:</h1>
+            <div id="instruction-list"><ol id="orList"></ol></div>
+            <input class="form-control-md" type="text" id="instruction" placeholder="Add instruction">
+            <button class="btn btn-sm bg-secondary" id="instructionBtn">Add</button>
+            <div class="text-warning" id="warningIns"></div>
+          </section>
+        
+          <button class="btn btn-md bg-primary mt-5" id="saveBtn">Save Recipe</button>
         </div>
         
-        <br>
-    
-        <section class="container mt-5">    
-          <h1>Ingredients:</h1>
-          <div id="ingredient-list"><ul></ul></div>
-          <input class="form-control-sm" type="text" id="ingredients" placeholder="Add ingredient">
-          <button class="btn btn-md bg-secondary" id="addIngredientsBtn">Add</button>
-        </section>
-    
-        <section class="container mt-5">
-          <h1>Instructions:</h1>
-          <div id="instruction-list"><ol></ol></div>
-          <input class="form-control-sm" type="text" id="instruction" placeholder="Add instruction">
-          <button class="btn btn-md bg-secondary" id="instructionBtn">Add</button>
-        </section>
-    
-        <button class="btn btn-md bg-primary mt-5" id="saveBtn">Save Recipe</button>
-        </div>
         <div class="col">
-          <div id="recipeDetails"></div>
+            <div class="row mt-5">
+              <h1>Recipe List</h1>
+              <div id="recipeDetails"></div>
+            </div>
+            <div class="row mt-5">
+              <div id="recipeContent"></div>
+            </div>
         </div>
+      
       </div>
-    </div>
-
  
     <script src="./simpleCookbook.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

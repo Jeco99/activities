@@ -23,4 +23,4 @@ var ingredients = ["a", "b", "c"];
 var instructions = ["x", "y", "z"];
 
 
- console.log(data);
+ console.log(!ingredients.includes("x"));
