@@ -135,26 +135,6 @@ function clearContent(){
 }
 
 function saveDetails(){
-    //    if((instructionsData.length == 0 || instruction.value == "") && 
-    //     recipeName.value == "" && 
-    //     (ingredientsData.length == 0 || ingre.value == "")){
-    //     warning.innerHTML = 'Recipe Name can\'t be empty!';
-    //     warningIns.innerHTML = 'Instruction Input can\'t be empty!';
-    //     warningIng.innerHTML = 'Ingredient Input can\'t be empty!';
-    // } else if(instructionsData.length == 0 && recipeName.value == "") {  
-    //     warning.innerHTML = 'Recipe Name can\'t be empty!';
-    //     warningIns.innerHTML = 'Instruction Input can\'t be empty!';
-    // } else if(ingredientsData.length == 0 && recipeName.value == "") {  
-    //     warning.innerHTML = 'Recipe Name can\'t be empty!';
-    //     warningIng.innerHTML = 'Ingredient Input can\'t be empty!';
-    // } else if(ingre.value == "" && instruction.value == ""){
-    //     warningIng.innerHTML = 'Ingredient Input can\'t be empty!';
-    //     warningIns.innerHTML = 'Instruction Input can\'t be empty!';
-    // } else if(ingredientsData.length == 0){
-    //     warningIng.innerHTML = 'Ingredient Input can\'t be empty!';
-    // } else if(instructionsData.length == 0 ){
-    //     warningIns.innerHTML = 'Instruction Input can\'t be empty!';
-    // } else 
 
     if(instruction.value == "" && 
             recipeName.value == "" && 
@@ -211,13 +191,8 @@ function saveDetails(){
         
         } else{
             alert('Recipe name already on the list!');
-            clearList();   
         }
-    }
-
-
-
-      
+    }     
 }
 
 
