@@ -1,0 +1,4 @@
+
+const strawberry = (orders, cash) => {
+
+}
