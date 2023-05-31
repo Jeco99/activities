@@ -1,13 +1,3 @@
-// check the name is valid the filter
-// validNames  = filteredNames
-// shift the name then count arr length
-// if one valid name then result {name} ---
-// if two valid name then result {name1} and {name2} ---
-// if three valid name then result {name1}, {name2} and {name3} ---
-// if more than result result {name1}, name2 and name.length  ----
-
-var specialNum = "0123456789!@#$%^&*()_-+={[}]|;<,>.?/ ".split("");
-
 
 function validNames(testNames, specialNum){
 
