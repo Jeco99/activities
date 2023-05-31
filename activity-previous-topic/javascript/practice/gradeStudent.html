@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Classification</title>
+</head>
+<body>
+    <input type="text">
+    <button type="submit">Submit</button>
+
+    <div id="gradesCode"></div>
+
+    <script>
+        let input = document.querySelector('input');
+        let subButton = document.querySelector('button');
+        let gradesCode = document.getElementById('gradesCode');
+
+        function inputVal(){
+            const h1 = document.createElement('h1');
+            let grades = input.value;
+
+            if (grades >= 80){
+                h1.innerHTML = 'A';
+                gradesCode.append(h1);
+            } else if (grades >= 70){
+                h1.innerHTML = 'B';
+                gradesCode.append(h1);
+            } else if (grades >= 60){
+                h1.innerHTML = 'C';
+                gradesCode.append(h1);
+            } else if (grades >= 50) {
+                h1.innerHTML = 'D';
+                gradesCode.append(h1);
+            } else{
+                h1.innerHTML = 'F';
+                gradesCode.append(h1);
+            }
+        }
+        subButton.addEventListener('click', inputVal);
+    </script>
+</body>
+</html>

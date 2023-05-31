@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Season</title>
+</head>
+<body>
+    <h1>Check Season</h1>
+    <input type="text">
+    <button type="submit">Check</button>
+
+    <div id="seasonDisp"></div>
+
+    <script>
+        let input = document.querySelector('input');
+        let checkSubmit = document.querySelector('button');
+        let seasonDisp = document.getElementById('seasonDisp');
+
+        const autumn = ['september', 'october', 'november'];
+        const winter = ['december', 'january', 'february'];
+        const spring = ['march', 'april', 'may'];
+        const summer = ['june', 'july', 'august'];
+
+        function display(h1){
+            seasonDisp.append(h1);
+            input.value = '';
+        }
+
+        function checkSeason(){
+            let userInput = input.value.toLocaleLowerCase();
+            const h1 = document.createElement('h1');
+
+            if (userInput == '') return;
+
+            if(autumn.includes(userInput)){
+                h1.innerHTML = 'Autumn';
+                display(h1);
+            } else if(winter.includes(userInput)){
+                h1.innerHTML = 'Winter';
+                display(h1);
+            } else if(spring.includes(userInput)){
+                h1.innerHTML = 'Spring';
+                display(h1);
+            } else if(summer.includes(userInput)){
+                h1.innerHTML = 'Summer';
+                display(h1);
+            } else{
+                userInput = userInput[0].toLocaleUpperCase() + userInput.substring(1);
+                h1.innerHTML = `${userInput} is not a month.`;
+                display(h1);
+            }
+        }
+
+        checkSubmit.addEventListener('click', checkSeason);
+
+    </script>
+</body>
+</html>

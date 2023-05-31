@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nMonth_day</title>
+</head>
+<body>
+    <h4>Determine the number of days</h4>
+    <input type="text">
+    <button type="submit">Submit</button>
+
+    <div id="month"></div>
+
+    <script>
+        let input = document.querySelector('input');
+        let subButton = document.querySelector('button');
+        let monthDisp = document.getElementById('month');
+
+        subButton.addEventListener('click', nMonth);
+
+        function display(p){
+            monthDisp.append(p);
+            input.value = '';
+        }
+
+        function leapYear(year){
+            return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0) ? 29 : 28;        
+        }
+
+        function nMonth(){
+            const now = new Date();
+            const year = now.getFullYear();
+            const isleapYear = leapYear(year);
+            const months_with_31_days = ["January", "March", "May", "July", "August", "October", "December"];
+            const months_with_30_days = ["April", "June", "September", "November"];
+            let month = input.value;
+            const p = document.createElement('p');
+
+            if(month == "") return;
+
+            month = month[0].toLocaleUpperCase() + month.substring(1).toLocaleLowerCase();
+            console.log(month);
+            if(month == 'February'){
+                p.innerHTML = `<strong>${month}</strong> has ${isleapYear} days.`;
+                 display(p);
+            } else if(months_with_30_days.includes(month)){
+                p.innerHTML = `<strong>${month}</strong> has 30 days.`;
+                 display(p);
+            } else if(months_with_31_days.includes(month)){
+                p.innerHTML = `<strong>${month}</strong> has 31 days.`;
+                 display(p);
+            } else{
+                p.innerHTML = `Wrong month entered.`;
+                 display(p);
+            }
+        }
+    </script>
+</body>
+</html>
