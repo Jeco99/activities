@@ -168,7 +168,7 @@ function saveDetails(){
        document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', (e) => {
               const targetUrl = e.target.href;
-              const clickUrl = targetUrl.match(/#[A-Za-z]+/g);      
+              const clickUrl = targetUrl.match(/#[A-Za-z0-9 ]+/g);      
     
               let previousClick =  clickUrl;
     
