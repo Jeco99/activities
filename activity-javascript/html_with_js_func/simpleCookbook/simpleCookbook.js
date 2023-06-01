@@ -1,67 +1,57 @@
-var ul = document.querySelector('ul');
-var ol = document.querySelector('ol');
+// TODO: research how to shorten code in data handling.
 
-//warning
-var warning = document.getElementById('warning');
-var warningIng = document.getElementById('warningIng');
-var warningIns = document.getElementById('warningIns');
+const warning = document.getElementById('warning');
+const warningIng = document.getElementById('warningIng');
+const warningIns = document.getElementById('warningIns');
+const ingre = document.getElementById('ingredients');
+const ingreBtn = document.getElementById('addIngredientsBtn');
+const instruction = document.getElementById('instruction');
+const instructionBtn = document.getElementById('instructionBtn');
+const saveBtn = document.getElementById('saveBtn');
+const recipeDetails = document.getElementById('recipeDetails');
+const recipeContent = document.getElementById('recipeContent');
+const recipeName = document.getElementById('recipeId');
+const instructionList = document.getElementById('instructionsContent');
+const ingredientList = document.getElementById('ingredientsContent');
+const recipeTitle = document.getElementById('recipeTitle');
+const recipeNew = document.getElementById('newBtn');
+const recipeList = document.getElementById('recipeList');
+const unList = document.getElementById('unList');
+const orList = document.getElementById('orList');
 
-//ingredients
-var ingre = document.getElementById('ingredients');
-var ingreBtn = document.getElementById('addIngredientsBtn');
-
-//instructions
-var instruction = document.getElementById('instruction');
-var instructionBtn = document.getElementById('instructionBtn');
-
-//save recipe
-var saveBtn = document.getElementById('saveBtn');
-
-// recipe details display
-var recipeDetails = document.getElementById('recipeDetails');
-var recipeContent = document.getElementById('recipeContent');
-
-//recipe
-var recipeName = document.getElementById('recipeId');
-
-//store the data
-var ingredientsData = [];
-var instructionsData = [];
-var recipetitleData = [];
-
-// main
+let ingredientsData= [];
+let instructionsData = [];
+let recipetitleData = [];
 let mainIngre_data = [];
 let mainInstruction_data = [];
 
-// ingredients
+recipeList.style.display = 'none';
+recipeNew.style.display = 'none';
+
 function addIngredients(){
     if(ingre.value == ""){
-        // alert('Recipe Name can\'t be empty!');
         warningIng.innerHTML = 'Ingredient Input can\'t be empty!';
     } else{
         let ingreLi = document.createElement('li');
-        ingreLi.className = 'ingreList';
         ingreLi.innerHTML = ingre.value;
         ingreLi.style.fontSize = "20px";
         ingredientsData.push(ingre.value);
-        ul.append(ingreLi);
+        unList.append(ingreLi);
         ingre.value = "";
         warningIng.innerHTML = '';
+        
     }
 }
 
-// instructions
 function addInstructions(){
     if(instruction.value == ""){
-        // alert('Recipe Name can\'t be empty!');
         warningIns.innerHTML = 'Instruction Input can\'t be empty!';
     } else{
         let intructLi = document.createElement('li');
-        intructLi.className = "instrucList";
         intructLi.innerHTML = instruction.value;
         intructLi.style.fontSize = "20px";
         instructionsData.push(instruction.value);
-        ol.append(intructLi);
+        orList.append(intructLi);
         instruction.value = "";
         warningIns.innerHTML = '';
     }
@@ -91,16 +81,14 @@ function display(disp_arr, tagName){
 
 
 function displayContent(url){
-    let urlClean = url.substring(1, url.length);
-    let indexClick = recipetitleData.indexOf(urlClean);
-  
-    let ingredientSelected = mainIngre_data[indexClick];
-    let instructionSelected = mainInstruction_data[indexClick];
-
-    let ingredients = document.createElement('h3');
-    let instruction = document.createElement('h3');
-    let recipeNameId = document.createElement('h2');
-    let recipeD = document.createElement('h1');
+    const urlClean = url.substring(1, url.length);
+    const indexClick = recipetitleData.indexOf(urlClean);  
+    const ingredientSelected = mainIngre_data[indexClick];
+    const instructionSelected = mainInstruction_data[indexClick];
+    const ingredients = document.createElement('h3');
+    const instruction = document.createElement('h3');
+    const recipeNameId = document.createElement('h2');
+    const recipeD = document.createElement('h1');
 
     recipeD.innerHTML = 'Recipe Details';
     recipeContent.append(recipeD);
@@ -121,8 +109,6 @@ function displayContent(url){
 }
 
 function clearList(){
-    var unList = document.getElementById('unList');
-    var orList = document.getElementById('orList');
     recipeName.value = "";
     unList.innerHTML = "";
     orList.innerHTML = "";
@@ -155,48 +141,63 @@ function saveDetails(){
         warning.innerHTML = '';
         warningIng.innerHTML = '';
         warningIns.innerHTML = '';
-        // check for existing array value
-        if(!recipetitleData.includes(recipeName.value)){
-            let recipeLi = document.createElement("a");
-            recipeLi.id = recipeName.value;
-            recipeLi.href = `#${recipeName.value}`;
-            recipeLi.target = "_parent";
-            recipeLi.style.textDecoration = "none";
-            recipeLi.style.color = "black";
-            recipeLi.style.fontSize = "30px"
-            recipeLi.innerHTML = `${recipeName.value} <br>`;
-            recipeDetails.appendChild(recipeLi);
-            recipetitleData.push(recipeName.value);
-
-            mainIngre_data.push(ingredientsData);
-            mainInstruction_data.push(instructionsData);
         
-           document.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', (e) => {
-                  // Retrieve href and store in targetUrl variable
-                  let targetUrl = e.target.href;
-                  // Output value of targetUrl to console
-                  var clickUrl = targetUrl.match(/#[A-Za-z]+/g);      
+        recipeList.style.display = 'inline';
+        instructionList.style.display = 'none';
+        ingredientList.style.display = 'none';
+        recipeTitle.style.display = 'none';
+        saveBtn.style.display = 'none';
+        recipeNew.style.display = 'inline';
+       
         
-                  let previousClick =  clickUrl;
-        
-                  if (previousClick == clickUrl){
-                    clearContent();
-                    displayContent(clickUrl[0]);
-                  } 
-                });
-              });
-
-              clearList();   
-        
+    if(!recipetitleData.includes(recipeName.value)){
+        let recipeLi = document.createElement("a");
+        recipeLi.id = recipeName.value;
+        recipeLi.href = `#${recipeName.value}`;
+        recipeLi.target = "_parent";
+        recipeLi.style.textDecoration = "none";
+        recipeLi.style.color = "black";
+        recipeLi.style.fontSize = "30px"
+        recipeLi.innerHTML = `${recipeName.value} <br>`;
+        recipeDetails.appendChild(recipeLi);
+        recipetitleData.push(recipeName.value);
+       
+        mainIngre_data.push(ingredientsData);
+        mainInstruction_data.push(instructionsData);
+    
+       document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+              const targetUrl = e.target.href;
+              const clickUrl = targetUrl.match(/#[A-Za-z]+/g);      
+    
+              let previousClick =  clickUrl;
+    
+              if (previousClick == clickUrl){
+                clearContent();
+                displayContent(clickUrl[0]);
+              } 
+            });
+          });
+          clearList();   
+       
         } else{
             alert('Recipe name already on the list!');
         }
     }     
 }
 
+function addNewRecipe(){
+    recipeList.style.display = 'none';
+    instructionList.style.display = 'inline';
+    ingredientList.style.display = 'inline';
+    recipeTitle.style.display = 'inline';
+    saveBtn.style.display = 'inline';
+    recipeNew.style.display = 'none';
+    clearList();
+}
 
 ingreBtn.addEventListener('click', addIngredients);
 instructionBtn.addEventListener('click', addInstructions);
 saveBtn.addEventListener('click', saveDetails);
+recipeNew.addEventListener('click', addNewRecipe);
 

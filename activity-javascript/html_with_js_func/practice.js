@@ -17,10 +17,20 @@
 
 //  console.log(arr.join(" "));
 
-var title = ["title"];
+// var title = ["title"];
 
-var ingredients = ["a", "b", "c"];
+// var ingredients = ["a", "b", "c"];
 var instructions = ["x", "y", "z"];
 
-
 //  console.log(!ingredients.includes("x"));
+// let data = [];
+
+// let recipe = {};
+
+// recipe.ingredientss = 'a';
+// recipe.instructions = 'b';
+
+// data.push(recipe);
+// console.log(data);
+
+// console.log(instructions.pop("x", "y"));
