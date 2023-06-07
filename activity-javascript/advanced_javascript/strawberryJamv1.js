@@ -13,22 +13,15 @@ function divThree(orders){
     return count;    
 }
 
-function checkCash(cash){
-    
-    // if cash greater than or equal to 40 then process
-    // else insufficients funds
-    return (cash >= 40 ? true : false)
-}
-
 function changeResult(change){
-    return (change >= 0 ? `Change: ${change}` : 'Insufficient Funds')
+    return change >= 0 ? `Change: ${change}` : 'Insufficient Funds'
 }
 
 function Strawberry(orders, cash){ 
     
-    var change = 0;
+    let change = 0;
 
-    if(checkCash(cash)){
+    if(cash >= 40 ){
         let count = divThree(orders);
         if (orders % 3 === 0){
             total = count * 100;
@@ -39,10 +32,10 @@ function Strawberry(orders, cash){
             discount = count * 100;
             leftPrice = left * 40;
             change = cash - (discount + leftPrice);
-            console.log(discount);
-            console.log(left);
-            console.log(leftPrice);
-            console.log(change);
+            // console.log(discount);
+            // console.log(left);
+            // console.log(leftPrice);
+            // console.log(change);
             return changeResult(change);
         }
     } else {
@@ -51,9 +44,10 @@ function Strawberry(orders, cash){
     }
 }
 
-// console.log(strawberry(8, 500));
-// console.log(strawberry(6, 200));
-// console.log(strawberry(15, 200));
-// console.log(strawberry(1, 39));
+console.log(Strawberry(8, 500));
+console.log(Strawberry(6, 200));
+console.log(Strawberry(15, 200));
+console.log(Strawberry(1, 39));
+console.log(Strawberry(9,500));
 
 module.exports = { Strawberry };
